@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Phone Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<td>
+    <table>
+        <tbody>
+        <tr>
+            <td>Name</td>
+            <td>Number</td>
+        </tr>
+<tr th:each="human : ${humans}">
+
+    <td th:text="${human.getName()}"></td>
+    <td th:text= "${human.getNumber()}"></td>
+
+        <td><form action="#" th:action="@{'human/delete/{id}'(id=${human.getId()})}" th:method="get" >
+            <input type="hidden" value="delete" />
+            <button type="submit">Delete</button>
+            </form>
+        </td>
+
+    <td><form action="#" th:action="@{'human/update/{id}'(id=${human.getId()})}" th:method="get" >
+        <input type="hidden" value="Update" />
+        <button type="submit">Update</button>
+    </form>
+    </td>
+</tr>
+        </tbody>
+    </table>
+</td>
+
+
+<br>
+<br>
+<form action="#" th:action="@{'human/new'}" th:method="get" >
+    <button type="submit">Create new human</button>
+</form>
+</body>
+</html>
