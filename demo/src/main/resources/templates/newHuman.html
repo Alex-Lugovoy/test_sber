@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/human/save}" th:object="${newHuman}">
+<form th:method="GET" th:action="@{/human/save}" th:object="${newHuman}">
     <label for="name"></label>
     <input type="hidden" th:field="*{id}" id="id"/>
 

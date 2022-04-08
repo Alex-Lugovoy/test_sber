@@ -31,7 +31,7 @@ public class MyController {
         return "newHuman";
     }
 
-    @PostMapping("/human/save")
+    @GetMapping("/human/save")
     public String save_human(@ModelAttribute("newHuman") @Valid Human human, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "newHuman";
