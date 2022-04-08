@@ -41,12 +41,7 @@ public class MyController {
 
     @GetMapping ("/human/delete/{id}")
     public String delete_human(@PathVariable("id")int id) {
-        try {
-            humanServiceImp.delete(id);
-        }
-        catch (EmptyResultDataAccessException e){
-            return "redirect:/";
-        }
+        humanServiceImp.delete(id);
         return "redirect:/";
     }
 
